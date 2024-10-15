@@ -12,7 +12,7 @@ RUN apt-get update -y \
 
 RUN python3 -m pip install --no-cache-dir \
   kaleido~=0.2 \
-  open3d-cpu~=0.18 \
+  open3d~=0.18 \
   opencv-python~=4.10 \
   optuna~=4.0 \
   transformers~=4.5 \

@@ -1,10 +1,11 @@
-FROM ros:humble
+FROM nvcr.io/nvidia/pytorch:21.10-py3
 
 SHELL ["/bin/bash", "-c", "-o", "pipefail"]
 
-RUN apt-get update -y && \
-  apt-get install -y --no-install-recommends \
-  python3-numpy \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+RUN python3 -m pip install --no-cache-dir \
+  kaleido~=0.2 \
+  open3d~=0.18 \
+  opencv-python~=4.10 \
+  optuna~=4.0 \
+  transformers~=4.5
 

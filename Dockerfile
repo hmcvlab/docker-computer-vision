@@ -11,7 +11,7 @@ RUN apt-get update -y \
   libx11-6 \
   && rm -rf /var/lib/apt/lists/*
 
-RUN  python3 -m pip uninstall \
+RUN  python3 -m pip uninstall -y \
   jupytext \
   mdit-py-plugins \
   && python3 -m pip install --no-cache-dir \

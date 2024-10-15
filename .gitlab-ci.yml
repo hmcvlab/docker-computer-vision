@@ -85,5 +85,5 @@ retag:
     - |
       docker buildx imagetools create \
         --tag "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}" \
-        --tag "${CI_REGISTRY_IMAGE}:latest"
+        --tag "${CI_REGISTRY_IMAGE}:latest" \
       "${TMP_IMAGE}"

@@ -7,5 +7,6 @@ RUN python3 -m pip install --no-cache-dir \
   open3d~=0.18 \
   opencv-python~=4.10 \
   optuna~=4.0 \
-  transformers~=4.5
+  transformers~=4.5 \
+  werkzeug~=2.0
 

@@ -79,7 +79,8 @@ amd_test:
 
 retag:
   extends: .template_docker
-  needs: ["amd_test", "arm_test"]
+  #needs: ["amd_test", "arm_test"]
+  needs: ["amd_test"]
   stage: tag
   script:
     - |

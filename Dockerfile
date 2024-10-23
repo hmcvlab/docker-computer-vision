@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 RUN apt-get update -y \
   && apt-get install -y --no-install-recommends \
+  git-lfs \
   libgl1 \
   libx11-6 \
   && rm -rf /var/lib/apt/lists/*

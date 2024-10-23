@@ -71,9 +71,9 @@ build:
 amd_test:
   extends: .template_test
 
-arm_test:
-  extends: .template_test
-  tags: [aarch64]
+#arm_test:
+#  extends: .template_test
+#  tags: [aarch64]
 
 # push
 

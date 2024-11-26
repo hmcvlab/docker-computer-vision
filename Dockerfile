@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 RUN apt-get update -y \
   && apt-get install -y --no-install-recommends \
+  default-libmysqlclient-dev \
   git-lfs \
   libgl1 \
   libx11-6 \
@@ -20,6 +21,7 @@ RUN  python3 -m pip uninstall -y \
   pip~=24.2 \
   && python3 -m pip install --no-cache-dir \
   kaleido~=0.2 \
+  mysqlclient~=2.2 \
   open3d~=0.18 \
   optuna~=4.0 \
   pycocotools~=2.0 \

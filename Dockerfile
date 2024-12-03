@@ -20,6 +20,7 @@ RUN  python3 -m pip uninstall -y \
   && python3 -m pip install --no-cache-dir \
   pip~=24.2 \
   && python3 -m pip install --no-cache-dir \
+  blickfeld_qb2~=2.4.0 \
   kaleido~=0.2 \
   mysqlclient~=2.2 \
   open3d~=0.18 \

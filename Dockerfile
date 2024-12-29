@@ -30,3 +30,5 @@ RUN  python3 -m pip uninstall -y \
   transformers~=4.5 \
   werkzeug~=2.0
 
+# Remove default configs for mysql
+RUN rm /etc/mysql/my.cnf

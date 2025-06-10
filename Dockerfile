@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:23.09-py3
+FROM nvcr.io/nvidia/pytorch:23.12-py3
 
 SHELL ["/bin/bash", "-c", "-o", "pipefail"]
 

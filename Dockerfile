@@ -25,8 +25,10 @@ RUN  python3 -m pip uninstall -y \
   mysqlclient~=2.2 \
   open3d~=0.18 \
   optuna~=4.0 \
+  pillow~=11.2 \
   pycocotools~=2.0 \
   rich~=13.7 \
+  timm~=1.0 \
   transformers~=4.5 \
   werkzeug~=2.0
 

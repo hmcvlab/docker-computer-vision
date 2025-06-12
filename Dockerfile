@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:24.05-py3
+FROM nvcr.io/nvidia/pytorch:24.06-py3
 
 SHELL ["/bin/bash", "-c", "-o", "pipefail"]
 
@@ -18,7 +18,7 @@ RUN  python3 -m pip uninstall -y \
   jupytext \
   mdit-py-plugins \
   && python3 -m pip install --no-cache-dir \
-  pip~=24.2 \
+  pip~=25.1 \
   && python3 -m pip install --no-cache-dir \
   blickfeld_qb2~=2.4.0 \
   kaleido~=0.2 \
@@ -28,6 +28,7 @@ RUN  python3 -m pip uninstall -y \
   pillow~=11.2 \
   pycocotools~=2.0 \
   rich~=13.7 \
+  scikit-image~=0.25 \
   timm~=1.0 \
   transformers~=4.5 \
   werkzeug~=2.0

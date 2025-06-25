@@ -21,12 +21,14 @@ RUN  python3 -m pip uninstall -y \
   pip~=25.1 \
   && python3 -m pip install --no-cache-dir \
   blickfeld_qb2~=2.4.0 \
+  coco_eval~=0.0 \
   kaleido~=0.2 \
   mysqlclient~=2.2 \
   open3d~=0.18 \
   optuna~=4.0 \
   pillow~=11.2 \
   pycocotools~=2.0 \
+  pytorch_lightning~=2.5 \
   rich~=13.7 \
   scikit-image~=0.25 \
   timm~=1.0 \

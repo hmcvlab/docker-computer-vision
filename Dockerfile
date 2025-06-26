@@ -5,7 +5,8 @@ SHELL ["/bin/bash", "-c", "-o", "pipefail"]
 ENV DEBIAN_FRONTEND=noninteractive \
   force_color_prompt=yes
 
-RUN apt-get update -y \
+RUN apt-get clean -y \
+  && apt-get update -y \
   && apt-get install -y --no-install-recommends \
   default-libmysqlclient-dev \
   git-lfs \

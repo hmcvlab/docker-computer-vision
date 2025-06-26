@@ -1,18 +1,18 @@
-FROM nvcr.io/nvidia/pytorch:24.11-py3
+FROM nvcr.io/nvidia/pytorch:25.01-py3
 
 SHELL ["/bin/bash", "-c", "-o", "pipefail"]
 
 ENV DEBIAN_FRONTEND=noninteractive \
   force_color_prompt=yes
 
-RUN apt-get clean -y \
-  && apt-get update -y \
+RUN apt-get update -y \
   && apt-get install -y --no-install-recommends \
   default-libmysqlclient-dev \
   git-lfs \
   libgl1 \
   libx11-6 \
   mysql-client \
+  && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
 RUN  python3 -m pip uninstall -y \

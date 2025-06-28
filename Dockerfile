@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:25.01-py3
+FROM nvcr.io/nvidia/pytorch:23.11-py3
 
 SHELL ["/bin/bash", "-c", "-o", "pipefail"]
 
@@ -25,7 +25,7 @@ RUN  python3 -m pip uninstall -y \
   coco_eval~=0.0 \
   kaleido~=0.2 \
   mysqlclient~=2.2 \
-  open3d~=0.18 \
+  open3d~=0.19 \
   optuna~=4.0 \
   pillow~=11.2 \
   pycocotools~=2.0 \

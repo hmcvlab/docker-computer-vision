@@ -34,7 +34,7 @@ RUN  python3 -m pip uninstall -y \
   scikit-image~=0.25 \
   timm~=1.0 \
   transformers~=4.5 \
-  werkzeug~=2.0
+  werkzeug~=3.0
 
 # Remove default configs for mysql
 RUN rm /etc/mysql/my.cnf

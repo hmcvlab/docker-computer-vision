@@ -28,6 +28,7 @@ RUN python3 -m pip install --no-cache-dir \
   scikit-image~=0.25 \
   timm~=1.0 \
   torch~=2.6 \
+  torch-tensorrt~=2.6 \
   transformers~=4.53 \
   ujson~=5.10
 

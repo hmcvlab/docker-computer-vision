@@ -23,14 +23,13 @@ RUN python3 -m pip install --no-cache-dir \
   mysqlclient~=2.2 \
   open3d~=0.18 \
   optuna~=4.0 \
-  pillow~=11.2 \
-  pycocotools~=2.0 \
   pytorch_lightning~=2.5 \
   rich~=13.7 \
   scikit-image~=0.25 \
   timm~=1.0 \
   torch~=2.6 \
-  transformers~=4.5
+  transformers~=4.53 \
+  ujson~=5.10
 
 # Remove default configs for mysql
 RUN rm /etc/mysql/my.cnf

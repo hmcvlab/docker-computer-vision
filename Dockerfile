@@ -15,13 +15,9 @@ RUN apt-get update -y \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
-RUN  python3 -m pip uninstall -y \
-  jupytext \
-  mdit-py-plugins \
-  && python3 -m pip install --no-cache-dir \
+RUN python3 -m pip install --no-cache-dir \
   pip~=25.1 \
   && python3 -m pip install --no-cache-dir \
-  blickfeld_qb2~=2.4.0 \
   coco_eval~=0.0 \
   kaleido~=0.2 \
   mysqlclient~=2.2 \
@@ -33,6 +29,7 @@ RUN  python3 -m pip uninstall -y \
   rich~=13.7 \
   scikit-image~=0.25 \
   timm~=1.0 \
+  torch~=2.6 \
   transformers~=4.5
 
 # Remove default configs for mysql

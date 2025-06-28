@@ -18,6 +18,7 @@ RUN apt-get update -y \
 RUN python3 -m pip install --no-cache-dir \
   pip~=25.1 \
   && python3 -m pip install --no-cache-dir \
+  cmaes~=0.11 \
   coco_eval~=0.0 \
   kaleido~=0.2 \
   mysqlclient~=2.2 \

@@ -25,5 +25,7 @@ build:
 		--file Dockerfile .
 
 test:
-	docker run --rm ${URL}/${NAME}:${TAG} \
+	docker run --rm  \
+		-v ${PWD}:/app \
+		${URL}/${NAME}:${TAG} \
 		sh -c "pytest"

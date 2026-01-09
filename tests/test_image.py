@@ -2,22 +2,24 @@
 Test if all binaries exist
 """
 
-import torch
-import shutil
-import pytest
 import importlib
+import shutil
+
+import pytest
+import torch
 
 
-@pytest.mark.parametrize(("binary"), ["python3"])
+@pytest.mark.parametrize("binary", ["python3"])
 def test_binaries(binary):
     """Check if binary exists"""
     assert shutil.which(binary)
 
 
 @pytest.mark.parametrize(
-    ("pip_package"),
+    "pip_package",
     [
         "torch",
+        "torchvision",
         "optuna",
         "transformers",
         "numpy",

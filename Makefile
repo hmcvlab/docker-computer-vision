@@ -1,6 +1,8 @@
-URL = gitlab.lrz.de:5005/messtechnik-labor/docker
-NAME = $(shell basename $(CURDIR))
+URL = hmcvlab
+NAME = computer-vision
 TAG = $(shell git tag --sort=committerdate | tail -1)
+
+.PHONY: format lint build test install-hooks
 
 format:
 	docker run --rm \
@@ -29,3 +31,9 @@ test:
 		-v ${PWD}:/app \
 		${URL}/${NAME}:${TAG} \
 		sh -c "pytest"
+
+install-hooks:
+	@echo "make format && make lint" > .git/hooks/pre-commit
+	@echo "make test" > .git/hooks/pre-push
+	@chmod +x .git/hooks/pre-commit
+	@chmod +x .git/hooks/pre-push

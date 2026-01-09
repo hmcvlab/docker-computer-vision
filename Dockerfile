@@ -16,7 +16,7 @@ RUN apt-get update -y \
   && rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m pip install --no-cache-dir \
-  pip~=25.1 \
+  pip~=25.3 \
   && python3 -m pip install --no-cache-dir \
   cmaes~=0.11 \
   coco_eval~=0.0 \
@@ -28,7 +28,7 @@ RUN python3 -m pip install --no-cache-dir \
   rich~=13.7 \
   scikit-image~=0.25 \
   timm~=1.0 \
-  torch~=2.6 \
+  torch~=2.9 \
   transformers~=4.53 \
   ujson~=5.10
 

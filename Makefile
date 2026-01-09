@@ -22,6 +22,7 @@ build:
 	docker buildx create --use && \
 	docker buildx build \
 		-t ${URL}/${NAME}:${TAG} \
+		-t ${URL}/${NAME}:latest \
 		--push \
 		--platform linux/amd64,linux/arm64 \
 		--file Dockerfile .

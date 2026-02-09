@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:23.11-py3
+FROM nvcr.io/nvidia/pytorch:25.12-py3
 
 SHELL ["/bin/bash", "-c", "-o", "pipefail"]
 
@@ -7,11 +7,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 RUN apt-get update -y \
   && apt-get install -y --no-install-recommends \
-  default-libmysqlclient-dev \
   git-lfs \
   libgl1 \
   libx11-6 \
-  mysql-client \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
@@ -19,18 +17,11 @@ RUN python3 -m pip install --no-cache-dir \
   pip~=25.3 \
   && python3 -m pip install --no-cache-dir \
   cmaes~=0.11 \
-  coco_eval~=0.0 \
-  kaleido~=0.2 \
-  mysqlclient~=2.2 \
-  open3d~=0.18 \
-  optuna~=4.0 \
-  pytorch_lightning~=2.5 \
-  rich~=13.7 \
-  scikit-image~=0.25 \
-  timm~=1.0 \
-  torch~=2.9 \
-  transformers~=4.53 \
+  opencv-python~=4.9 \
+  # kaleido~=0.2 \
+  # optuna~=4.0 \
+  # rich~=13.7 \
+  # scikit-image~=0.25 \
+  # timm~=1.0 \
+  # transformers~=4.53 \
   ujson~=5.10
-
-# Remove default configs for mysql
-RUN rm /etc/mysql/my.cnf

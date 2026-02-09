@@ -18,13 +18,13 @@ def test_binaries(binary):
 @pytest.mark.parametrize(
     "pip_package",
     [
-        "torch",
-        "torchvision",
-        "optuna",
-        "transformers",
+        "cv2",
         "numpy",
         "open3d",
-        "cv2",
+        "optuna",
+        "torch",
+        "torchvision",
+        "transformers",
     ],
 )
 def test_pip_packages(pip_package):

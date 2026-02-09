@@ -17,11 +17,12 @@ RUN python3 -m pip install --no-cache-dir \
   pip~=25.3 \
   && python3 -m pip install --no-cache-dir \
   cmaes~=0.11 \
+  kaleido~=0.2 \
+  open3d~=0.18 \
   opencv-python~=4.9 \
-  # kaleido~=0.2 \
-  # optuna~=4.0 \
-  # rich~=13.7 \
-  # scikit-image~=0.25 \
-  # timm~=1.0 \
-  # transformers~=4.53 \
+  optuna~=4.0 \
+  rich~=13.7 \
+  scikit-image~=0.25 \
+  timm~=1.0 \
+  transformers~=4.53 \
   ujson~=5.10

@@ -20,14 +20,16 @@ build:
 	docker build -t ${URL}/${NAME}:${TAG} .
 
 test:
-	docker run --rm  \
+	docker run --tty \
+		--rm  \
 		--ipc=host \
 		--ulimit memlock=-1 \
 		--ulimit stack=67108864 \
 		--gpus all \
 		-v .:/app \
+		-w /app \
 		${URL}/${NAME}:${TAG} \
-		pytest
+		bash -c "pytest tests/"
 
 deploy:
 	docker buildx create --use --name tmp-builder && \

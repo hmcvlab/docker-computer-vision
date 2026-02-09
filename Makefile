@@ -32,6 +32,7 @@ test:
 		bash -c "pytest tests/"
 
 deploy:
+	docker buildx rm tmp-builder && \
 	docker buildx create --use --name tmp-builder && \
 	docker buildx build \
 		-t ${URL}/${NAME}:${TAG} \

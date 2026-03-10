@@ -27,6 +27,7 @@ RUN python3 -m pip install --no-cache-dir \
   opencv-python~=4.9 \
   optuna~=4.0 \
   rich~=13.7 \
+  seaborn~=0.13 \
   scikit-image~=0.25 \
   timm~=1.0 \
   transformers~=4.53 \

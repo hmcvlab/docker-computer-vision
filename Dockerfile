@@ -17,22 +17,20 @@ RUN apt-get update -y \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
-# Install Open3d
-COPY scripts/install_open3d.sh /tmp/install_open3d.sh
-RUN bash /tmp/install_open3d.sh
-
 USER ubuntu
 RUN python3 -m pip install --no-cache-dir \
   pip~=25.3 \
   && python3 -m pip install --no-cache-dir \
   cmaes~=0.11 \
   kaleido~=0.2 \
+  loguru~=0.7 \
   opencv-python~=4.9 \
   optuna~=4.0 \
   rich~=13.7 \
   scikit-image~=0.25 \
   timm~=1.0 \
   transformers~=4.53 \
-  ujson~=5.10
+  ujson~=5.10 \
+  ultralytics~=8.0
 
 WORKDIR /home/ubuntu

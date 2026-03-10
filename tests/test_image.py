@@ -21,7 +21,7 @@ def test_binaries(binary):
         "cv2",
         "loguru",
         "numpy",
-        #"open3d",
+        # "open3d",
         "optuna",
         "seaborn",
         "torch",

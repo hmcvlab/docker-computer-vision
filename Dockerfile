@@ -12,7 +12,9 @@ RUN usermod -aG sudo ubuntu && \
 RUN apt-get update -y \
   && apt-get install -y --no-install-recommends \
   git-lfs \
+  libegl1 \
   libgl1 \
+  libusb-1.0-0 \
   libx11-6 \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
@@ -21,6 +23,7 @@ USER ubuntu
 RUN python3 -m pip install --no-cache-dir \
   pip~=25.3 \
   && python3 -m pip install --no-cache-dir \
+  open3d~=0.20 \
   cmaes~=0.11 \
   kaleido~=0.2 \
   loguru~=0.7 \

@@ -1,0 +1,25 @@
+name: CI
+
+# Lint-only: the image is too large to build in CI (times out).
+# Build, test and release happen locally via the Makefile.
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Lint Dockerfile
+        run: docker run --rm -v "$PWD":/app hmcvlab/lint
+
+      - name: Check formatting
+        run: |
+          docker run --rm -v "$PWD":/app hmcvlab/format
+          git diff --exit-code

@@ -1,8 +1,8 @@
-.PHONY: format lint build test deploy install_hooks
+.PHONY: format lint build test check release clean install-hooks
 
 URL = hmcvlab
 NAME = computer-vision
-TAG = $(shell git tag --sort=committerdate | tail -1)
+DEV = dev
 
 format:
 	docker run --rm \
@@ -17,9 +17,9 @@ lint:
 		"${URL}/lint"
 
 build:
-	docker build -t ${URL}/${NAME}:${TAG} .
+	docker build -t ${URL}/${NAME}:${DEV} .
 
-test:
+test: build
 	docker run --tty \
 		--rm  \
 		--ipc=host \
@@ -28,18 +28,36 @@ test:
 		--gpus all \
 		-v .:/app \
 		-w /app \
-		${URL}/${NAME}:${TAG} \
+		${URL}/${NAME}:${DEV} \
 		bash -c "pytest tests/"
 
-deploy:
-	docker buildx rm tmp-builder && \
-	docker buildx create --use --name tmp-builder && \
+check:
+	@test -n "$(VERSION)" || (echo "usage: make release VERSION=x.y.z"; exit 1)
+	@! git rev-parse --verify --quiet refs/tags/$(VERSION) >/dev/null || \
+		(echo "error: git tag $(VERSION) already exists"; exit 1)
+	@git diff --quiet && git diff --cached --quiet || \
+		(echo "error: commit all changes before releasing"; exit 1)
+
+release: check test
+	docker tag ${URL}/${NAME}:${DEV} ${URL}/${NAME}:${VERSION}-amd64
+	docker push ${URL}/${NAME}:${VERSION}-amd64
+	docker buildx inspect tmp-builder >/dev/null 2>&1 || \
+		docker buildx create --use --name tmp-builder
+	docker run --privileged --rm tonistiigi/binfmt --install arm64 >/dev/null
 	docker buildx build \
-		-t ${URL}/${NAME}:${TAG} \
+		--builder tmp-builder \
+		--platform linux/arm64 \
+		-t ${URL}/${NAME}:${VERSION}-arm64 \
+		--push .
+	docker buildx imagetools create \
+		-t ${URL}/${NAME}:${VERSION} \
 		-t ${URL}/${NAME}:latest \
-		--push \
-		--platform linux/amd64,linux/arm64 \
-		--file Dockerfile . && \
+		${URL}/${NAME}:${VERSION}-amd64 \
+		${URL}/${NAME}:${VERSION}-arm64
+	git tag -a $(VERSION) -m $(VERSION)
+	git push origin $(VERSION)
+
+clean:
 	docker buildx rm tmp-builder
 
 install-hooks:
